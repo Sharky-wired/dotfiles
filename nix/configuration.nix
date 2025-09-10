@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "Blue-Sharky"; # Define your hostname.
+  networking.hostName = "sharky"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -50,7 +50,7 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver.enable = true;	
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -67,7 +67,7 @@
  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "ph";
-    variant = "";
+    variant = "dvorak";
   };
 
   # Enable CUPS to print documents.
@@ -95,6 +95,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sharky = {
     isNormalUser = true;
+    shell = pkgs.zsh;  
     description = "Sharky";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
@@ -103,14 +104,20 @@
     ];
   };
 
+  # Set Shell
+  programs.zsh.enable = true;
+
+
+
   # Install firefox.
-  programs.firefox.enable = false;
+  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  tree
   gnupg
   brave
   discord
@@ -119,6 +126,7 @@
   wireshark
   vim
   delta
+  python3
   # doom emacs packages
   emacs
   zsh
@@ -131,10 +139,7 @@
   pinentry-curses
   #PPDSI
   nodejs_24
-  # Hyprland
-  waybar
-  alacritty
- 
+  # Hyprland  
   # KDE bar
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
