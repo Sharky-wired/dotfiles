@@ -11,6 +11,22 @@
   :config
   (add-hook 'lisp-mode-hook #'sly-editing-mode))
 
+;; PostgreSQL
+(use-package! pgmacs
+  :after pg-el
+  :commands (pgmacs pgmacs-open-uri pgmacs-open-string)
+  :config
+  ;; optional: setup default connection string
+  (setq pgmacs-default-connection "postgresql://user:password@localhost:5432/mydb")
+  ;; maybe keybindings
+  (map! :leader
+        :desc "Launch PGmacs" "db p" #'pgmacs)
+)
+
+
+
+
+
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.

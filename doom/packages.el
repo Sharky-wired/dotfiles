@@ -10,6 +10,12 @@
 (package! ox-reveal)
 (package! ox-epub)
 
+;; PostgreSQL
+(package! pg-el
+  :recipe (:host github :repo "emarsden/pg-el"))
+(package! pgmacs
+  :recipe (:host github :repo "emarsden/pgmacs"))
+
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;; (package! some-package)
 
