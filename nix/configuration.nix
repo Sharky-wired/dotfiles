@@ -153,9 +153,9 @@
   # GPG
   gnumake
   pinentry-curses
-  #PPDSI
+  # web
   nodejs_24
-  # SAM
+  # database
   postgresql
   pgadmin4
   # Hyprland  
